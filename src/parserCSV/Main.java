@@ -9,7 +9,6 @@ public class Main {
    //     ParserCSV parserCSV = new ParserCSV("Имя,Фамилия,Возраст\n" +
    //             "Лена,Головач,\n" +
    //             "Олег,Квач,20");
-        parserCSV.printArray();
         Scanner myScanner = new Scanner(System.in);
 
         System.out.println("input y coord");
@@ -23,8 +22,7 @@ public class Main {
         String age = myScanner.next();
 
         parserCSV.setCell(yCoord, firstName, lastName, age);
-        parserCSV.printArray();
-        System.out.println(parserCSV.arrayToString());
+
         FileUtils.fileWriter(parserCSV.arrayToString());
     }
 }

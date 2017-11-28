@@ -42,13 +42,15 @@ public class ParserCSV {
 
    public String arrayToString(){
         StringBuilder stringBuilder = new StringBuilder();
-        for(ArrayList<String> a: this.myArray){
-            for(String s: a){
-                stringBuilder.append(s);
-                stringBuilder.append("");
+        for(int i = 0; i < this.myArray.size(); i++){
+            for(int j = 0; j < this.myArray.get(i).size(); j++){
+                if (j!=0){
+                    stringBuilder.append(",");
+                }
+                stringBuilder.append(this.myArray.get(i).get(j));
             }
             stringBuilder.append("\n");
-       }
+        }
        return stringBuilder.toString();
    }
 

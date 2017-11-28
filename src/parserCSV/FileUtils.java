@@ -8,28 +8,20 @@ public class FileUtils {
     private static String OUTPUT_PATH = "./output.csv";
 
     public static String fileReader(){
-  //      File inputFile = new File(INPUT_PATH);
+        File inputFile = new File(INPUT_PATH);
 
         StringBuilder stringBuilder = new StringBuilder();
 
         try {
-     /*       FileInputStream fis =  new FileInputStream(INPUT_PATH);
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis, "utf8"));
-            String s;
-            while((s = in.readLine())!=null){
-              stringBuilder.append(s);
-            }*/
-            Reader rin = new FileReader(INPUT_PATH);
+            Reader rin = new FileReader(inputFile.getAbsoluteFile());
             int c;
-            while((c=rin.read())!=-1) {
+            while((c = rin.read())!=-1) {
                 stringBuilder.append((char) c);
             }
         }
         catch(IOException e) {
             e.printStackTrace();
         }
-    //    System.out.println("input result:");
-     //   System.out.println(stringBuilder.toString());
         return stringBuilder.toString();
     }
 
