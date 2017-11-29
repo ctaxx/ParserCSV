@@ -2,11 +2,9 @@ package parserCSV;
 
 import java.util.ArrayList;
 
-
-
 public class ParserCSV {
 
-    ArrayList<ArrayList<String>> myArray;
+    private ArrayList<ArrayList<String>> myArray;
 
     public ParserCSV(String s) {
         this.myArray = parse(s);
@@ -40,6 +38,15 @@ public class ParserCSV {
         }
     }
 
+    public static void printArray(ArrayList<ArrayList<String>> array){
+        for(ArrayList<String> a: array){
+            for(String s: a){
+                System.out.print(s + "");
+            }
+            System.out.println();
+        }
+    }
+
     public String arrayToString(){
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < this.myArray.size(); i++){
@@ -64,5 +71,17 @@ public class ParserCSV {
             return;
         }
         this.myArray.get(y).set(x, string);
+    }
+
+    public void restoreState(ArrayList<ArrayList<String>> array){
+        if (array.equals(null)){
+            System.out.println("you have nothing to restore!");
+            return;
+        }
+        this.myArray = array;
+    }
+
+    public ArrayList<ArrayList<String>> getMyArray() {
+        return myArray;
     }
 }
