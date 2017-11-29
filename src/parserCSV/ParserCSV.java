@@ -40,7 +40,7 @@ public class ParserCSV {
         }
     }
 
-   public String arrayToString(){
+    public String arrayToString(){
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < this.myArray.size(); i++){
             for(int j = 0; j < this.myArray.get(i).size(); j++){
@@ -51,16 +51,18 @@ public class ParserCSV {
             }
             stringBuilder.append("\n");
         }
-       return stringBuilder.toString();
-   }
+        return stringBuilder.toString();
+    }
 
     public String getCell(int x, int y){
         return null;
     }
 
-    public void setCell(int y, String firstName, String lastName, String age){
-        this.myArray.get(y).set(0, firstName);
-        this.myArray.get(y).set(1, lastName);
-        this.myArray.get(y).set(2, age);
+    public void setCell(int x, int y, String string){
+        if (x < 0 || y < 0 || (y > this.myArray.size()-1) || (x > this.myArray.get(y).size()-1)){
+            System.out.println("you are wrong with your coords!");
+            return;
+        }
+        this.myArray.get(y).set(x, string);
     }
 }
