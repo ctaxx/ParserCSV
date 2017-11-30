@@ -9,7 +9,6 @@ public class Caretaker {
         if (stateList.isEmpty()){
             System.out.println("stateList is empty!");
             return null;
-
         }
         Memento memento = stateList.get(stateList.size()-1);
         stateList.remove(stateList.size()-1);

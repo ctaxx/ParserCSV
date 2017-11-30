@@ -66,22 +66,22 @@ public class ParserCSV {
     }
 
     public void setCell(int x, int y, String string){
-        if (x < 0 || y < 0 || (y > this.myArray.size()-1) || (x > this.myArray.get(y).size()-1)){
-            System.out.println("you are wrong with your coords!");
-            return;
-        }
         this.myArray.get(y).set(x, string);
     }
 
     public void restoreState(ArrayList<ArrayList<String>> array){
-        if (array.equals(null)){
-            System.out.println("you have nothing to restore!");
-            return;
-        }
         this.myArray = array;
     }
 
     public ArrayList<ArrayList<String>> getMyArray() {
         return myArray;
+    }
+
+    public boolean isCorrectCoords(int x, int y){
+        if (x < 0 || y < 0 || (y > this.myArray.size()-1) || (x > this.myArray.get(y).size()-1)){
+            System.out.println("you are wrong with your coords!");
+            return false;
+        }
+        return true;
     }
 }

@@ -39,9 +39,10 @@ public class Main {
         System.out.println("input new cell content");
         String newCellContent = myScanner.next();
 
-        saveState();
-
-        parserCSV.setCell(xCoord, yCoord, newCellContent);
+        if(parserCSV.isCorrectCoords(xCoord, yCoord)){
+            saveState();
+            parserCSV.setCell(xCoord, yCoord, newCellContent);
+        }
     }
 
     public static void showCells(){
@@ -60,12 +61,16 @@ public class Main {
     }
 
     private static void undo(){
-        parserCSV.restoreState(caretaker.getMemento().getState());
+        Memento memento = caretaker.getMemento();
+        if((memento != null)){
+            parserCSV.restoreState(memento.getState());
+        }else
+        {
+            System.out.println("you have nothing to restore!");
+        }
     }
 
     private static void saveState(){
-  //      ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
-  //      arrayList.addAll(parserCSV.getMyArray());
         caretaker.saveState(new Memento(parserCSV.getMyArray()));
     }
 }
