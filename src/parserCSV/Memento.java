@@ -7,7 +7,13 @@ public class Memento {
 
     public Memento(ArrayList<ArrayList<String>> state){
         ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
-        arrayList.addAll(state);
+        for(ArrayList<String> innerArray: state){
+            ArrayList<String> newArray = new ArrayList<>();
+            for(String s: innerArray){
+                newArray.add(s);
+            }
+            arrayList.add(newArray);
+        }
         this.state = arrayList;
     }
 

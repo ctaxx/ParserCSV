@@ -13,18 +13,18 @@ public class Caretaker {
         }
         Memento memento = stateList.get(stateList.size()-1);
         stateList.remove(stateList.size()-1);
-        System.out.println("I'm gonna return a memento!");
-        System.out.println("this memento is:");
-        for(Memento mem: stateList) {
-            ParserCSV.printArray(mem.getState());
-        }
-        System.out.println("--------------");
+//        System.out.println("I'm gonna return a memento!");
+//        System.out.println("this memento is:");
+//        for(Memento mem: stateList) {
+//            ParserCSV.printArray(mem.getState());
+//        }
+//        System.out.println("--------------");
         return memento;
     }
 
     public void saveState(Memento state){
         stateList.add(state);
-        System.out.println("we have " + stateList.size() + " memories");
+//        System.out.println("we have " + stateList.size() + " memories");
     }
 
     public void clearMems(){
